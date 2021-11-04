@@ -18,6 +18,10 @@ refs.loadMoreButton.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
     e.preventDefault();
+    clearGallary();
+    if (newsApiService.query = '') {
+        return alert('Enter something!');
+    }
     newsApiService.resetPage();
     newsApiService.query = e.currentTarget.elements.query.value;
     newsApiService.fetchArticles().then(appendArticlesMarkup);
@@ -27,4 +31,7 @@ function onLoadMore() {
 }
 function appendArticlesMarkup(articles) {
     refs.gallary.insertAdjacentHTML('beforeend', articlesTpl(articles));
+}
+function clearGallary() {
+    refs.gallary.innerHTML = "";
 }
