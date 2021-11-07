@@ -36,10 +36,6 @@ body {
   font-size: 20px;
 }
 .gallery {
-  width: 1200px;
-  display: flex;
-  list-style-type: none;
-  flex-wrap: wrap;
   padding: 0;
 }
 .img-thumb {
@@ -55,11 +51,20 @@ body {
 }
 
 .gallery__item {
-  margin-right: 20px;
-  margin-bottom: 20px;
+  width: 1200px;
+  height: 1088px;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.active {
+  height: 1088px;
 }
 .photo-card {
   width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 .stats {
   display: flex;
