@@ -11,7 +11,7 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 
 const refs = {
     searchForm: document.querySelector('.search-form'),
-    gallary: document.querySelector('.gallery'),
+    gallery: document.querySelector('.gallery'),
 };
 const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more"]',
@@ -23,12 +23,11 @@ loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
     e.preventDefault();
-    clearGallary();
-    loadMoreBtn.show();
+    clearGallery();
+
     newsApiService.resetPage();
     newsApiService.query = e.currentTarget.elements.query.value;
     if (newsApiService.query === '') {
-        loadMoreBtn.hide();
         defaultModules.set(PNotifyMobile, {});
         return alert({
             text: '! Enter something!',
@@ -38,28 +37,28 @@ function onSearch(e) {
 
     };
     newsApiService.fetchArticles()
-        .then(appendArticlesMarkup)
-        .catch(error => {/*
+        .then(appendArticlesMarkup).catch(error => {
+            console.log(error);
             defaultModules.set(PNotifyMobile, {});
             return alert({
-                text: '! Information is not found!',
+                text: '! Information not found!',
                 addClass: 'notify',
                 delay: 2000,
-            });*/
-            console.log(error);
-
-
+            });
         });
 }
 function onLoadMore() {
     newsApiService.fetchArticles().then(appendArticlesMarkup);
 }
 function appendArticlesMarkup(articles) {
-    if (articles.length < 12) {
+    if (articles.length >= 12) {
+        loadMoreBtn.show();
+    }
+    else {
         loadMoreBtn.hide();
     }
-    refs.gallary.insertAdjacentHTML('beforeend', articlesTpl(articles));
+    refs.gallery.insertAdjacentHTML('beforeend', articlesTpl(articles));
 }
-function clearGallary() {
-    refs.gallary.innerHTML = "";
+function clearGallery() {
+    refs.gallery.innerHTML = "";
 }

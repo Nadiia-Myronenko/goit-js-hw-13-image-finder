@@ -15,6 +15,9 @@ export default class NewsApiService {
             })
             .then(data => {
                 this.incrementPage();
+                if (data.hits.length === 0) {
+                    throw new Error('Information not found');
+                };
                 return data.hits;
             });
     }
