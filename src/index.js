@@ -50,13 +50,7 @@ function onSearch(e) {
         });
 }
 function onLoadMore() {
-    const galleryItem = document.querySelector('.gallery__item');
-    if (galleryItem.classList.contains('active')) {
-        galleryItem.classList.remove('active');
-    }
     newsApiService.fetchArticles().then(appendArticlesMarkup);
-    const newCards = document.querySelector('.gallery__item.active');
-    newCards.scrollIntoView({ behavior: "smooth" });
 }
 function appendArticlesMarkup(articles) {
     if (articles.length >= 12) {
