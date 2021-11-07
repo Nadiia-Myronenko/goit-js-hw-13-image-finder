@@ -51,6 +51,7 @@ function onSearch(e) {
 }
 function onLoadMore() {
     newsApiService.fetchArticles().then(appendArticlesMarkup);
+
 }
 function appendArticlesMarkup(articles) {
     if (articles.length >= 12) {
@@ -59,7 +60,7 @@ function appendArticlesMarkup(articles) {
     else {
         loadMoreBtn.hide();
     }
-    refs.gallery.insertAdjacentHTML('beforeend', `<li class="gallery__item active"> ${articlesTpl(articles)}</li>`);
+    refs.gallery.insertAdjacentHTML('beforeend', `<li class="gallery__item"> ${articlesTpl(articles)}</li>`);
 }
 function clearGallery() {
     refs.gallery.innerHTML = "";
