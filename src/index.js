@@ -51,7 +51,10 @@ function onSearch(e) {
 }
 function onLoadMore() {
     newsApiService.fetchArticles().then(appendArticlesMarkup);
-
+    refs.gallery.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
 }
 function appendArticlesMarkup(articles) {
     if (articles.length >= 12) {
