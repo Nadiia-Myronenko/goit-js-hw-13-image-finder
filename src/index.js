@@ -50,13 +50,13 @@ function onSearch(e) {
         });
 }
 function onLoadMore() {
-    newsApiService.fetchArticles().then(appendArticlesMarkup).then
+    newsApiService.fetchArticles().then(appendArticlesMarkup);
     setTimeout(() => {
         refs.gallery.lastChild.scrollIntoView({
             behavior: 'smooth',
             block: 'start',
         })
-    }, 500);
+    }, 1000);
 
 }
 function appendArticlesMarkup(articles) {
