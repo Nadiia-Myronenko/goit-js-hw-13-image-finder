@@ -17,7 +17,18 @@ body {
   line-height: 1.5;
   background: peachpuff;
   color: #424242;
-  padding: 30px;
+  padding: 30px 5px;
+  @media screen and (min-width: 760px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.search-form {
+  @media screen and (min-width: 480px) {
+    margin-right: auto;
+    margin-left: auto;
+    width: 427px;
+  }
 }
 .search-field {
   border: 1px solid grey;
@@ -25,9 +36,11 @@ body {
   padding: 10px;
   font-size: 20px;
   margin-right: 20px;
-  width: 300px;
   display: inline-block;
   margin-bottom: 30px;
+  @media screen and (min-width: 480px) {
+    width: 320px;
+  }
 }
 .btn {
   border: 1px solid grey;
@@ -43,10 +56,11 @@ body {
 .img-thumb {
   width: 300px;
   height: 204px;
-  display: flex;
 }
 .photo-card {
   height: 252px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .photo-card__img {
   height: 100%;
@@ -56,16 +70,26 @@ body {
 }
 
 .gallery__item {
-  width: 1200px;
-  display: flex;
+  width: 100%;
   list-style-type: none;
-  flex-wrap: wrap;
   padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: 760px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 .photo-card {
+  @media screen and (max-width: 759px) {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   width: 350px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 10px;
 }
 .stats {
   display: flex;
