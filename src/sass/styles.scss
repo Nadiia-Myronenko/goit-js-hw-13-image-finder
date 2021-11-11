@@ -15,11 +15,12 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
-  background-image: radial-gradient(
-    circle at top right,
-    rgb(255, 218, 185) 5%,
-    rgb(242, 255, 185) 50%,
-    rgb(255, 195, 185) 70%
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 254, 185) 5%,
+    rgb(255, 218, 185) 20%,
+    rgb(255, 254, 185) 80%,
+    rgb(255, 218, 185) 90%
   );
   color: #424242;
   padding: 30px 5px;
