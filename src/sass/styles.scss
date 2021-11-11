@@ -62,6 +62,8 @@ body {
 .img-thumb {
   width: 300px;
   height: 204px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 .photo-card {
   height: 252px;
